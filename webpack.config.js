@@ -10,7 +10,6 @@ module.exports = {
         'babel-polyfill',
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/only-dev-server',
-        'react-hot-loader/patch',
         path.join(__dirname, 'app/index.js')
     ],
     output: {
@@ -31,19 +30,7 @@ module.exports = {
           'process.env.NODE_ENV': JSON.stringify('development')
         })
     ],
-    eslint: {
-        configFile: '.eslintrc',
-        failOnWarning: false,
-        failOnError: false
-    },
     module: {
-        preLoaders: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'eslint'
-            }
-        ],
         loaders: [
             {
                 test: /\.js?$/,
@@ -61,5 +48,12 @@ module.exports = {
             { test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
             { test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/, loader: 'file' }
         ]
-    }
+    },
+		resolve: {
+			alias: {
+			"react": "preact-compat",
+			"react-dom": "preact-compat",
+			'create-react-class': 'preact-compat/lib/create-react-class'
+			}
+		}
 };
