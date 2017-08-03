@@ -24,7 +24,7 @@ class About extends Component {
           <a className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <div className="App-intro">
+        <div className="App-intro" style={{width: '80%', margin:'auto'}}>
           <h2>This is panel group of react bootstrap. Error- when we click on panel header it disappeares and further toggle is not possible</h2>
           {this.state.arr.map((item, i)=>{
             return (
